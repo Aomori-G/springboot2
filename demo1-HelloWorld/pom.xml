@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--模型版本，声明项目描述符遵循哪一个POM模型版本-->
+    <modelVersion>4.0.0</modelVersion>
+    <!--父项目的坐标-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.6</version>
+        <!--Maven先在构建当前项目的地方寻找父项目的POM，然后在文件系统的 relativePath
+            位置寻找（如果没找到，则继续在本地仓库寻找），最后在远程仓库中寻找。
+        -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!--公司或组织的唯一标志(项目的全球唯一标识符)，通过全限定包名区分该项目和其他项目，
+        如：com.cxq.dome，Maven会将该项目生成的 JAR 包放在本地路径：/com/cxq/demo
+    -->
+    <groupId>com.cxq</groupId>
+    <!--项目的唯一ID，一个groupId下面可能有多个项目，靠artifactId区分-->
+    <artifactId>demo1-HelloWorld</artifactId>
+    <!--版本号，格式为 主版本.次版本.增量版本-限定版本号-->
+    <version>0.0.1-SNAPSHOT</version>
+    <!--项目名称，用于Maven产生的文档-->
+    <name>demo1-HelloWorld</name>
+    <!--项目的详细描述，用于Maven产生的文档。
+        这个元素能够在用HTML格式描述时使用，如CDATA中的文本会被解析器忽略，就可以包含HTML标签
+    -->
+    <description>Demo project for Spring Boot</description>
+
+    <!--properties：自定义变量
+        引用变量：使用表达式 ${变量名}
+    -->
+    <properties>
+        <!--项目开发的Java版本号-->
+        <java.version>1.8</java.version>
+    </properties>
+    <!--dependencies：添加依赖，可以有多个dependency-->
+    <dependencies>
+        <!--实现对 springmvc 的自动化配置-->
+        <dependency>
+            <!--
+                groupId：定义隶属的实际项目，坐标元素之一
+                artifactId：定义项目中的一个模块，坐标元素之一
+                version：依赖或项目的版本，坐标元素之一
+                scope：
+                    compile：默认值，参与编译、测试、运行阶段，打包时包含此依赖
+                    provided：参与编译、测试、运行阶段，打包时不包含
+                    runtime：不参与编译，参与测试、运行
+                    system：类似 provided，以外部 JAR 提供
+                    test：参与测试
+            -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!--构建项目（打包生成可执行文件）需要的信息-->
+    <build>
+        <plugins>
+            <plugin>
+                <!--创建SpringBoot项目，默认提供spring-boot-maven-plugin插件，
+                    提供打包时需要的信息，将SpringBoot应用打包成 jar 或 war 文件。
+                -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
