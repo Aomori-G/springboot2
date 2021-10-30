@@ -1,0 +1,17 @@
+#演示使用 application.yaml 文件，
+# YAML/YML 功能于 Properties 相同，格式更加清晰明了，但在 SpringBoot 程序 Properties 优先级会高于 YAML
+spring:
+  main:
+    banner-mode: off #key 后的冒号后一定要跟一个空格
+server: #server 定义服务器的配置
+  port: 8081 #定义要访问的端口是 8081（默认端口8080）
+  servlet:
+    session:
+      timeout: 30 #定义 Session 的超时时间为 30s
+  tomcat:
+    uri-encoding: UTF-8 #uri-encoding: UTF-8，定义 URI 编码是 UTF-8 格式
+age: 19
+name: 小巴
+personinfo:
+  name: 张小巴
+  age: 3
