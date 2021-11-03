@@ -177,6 +177,7 @@ public class user {
          *      全局搜索文本：Ctrl + Shift + F
          *      替换当前窗口文本：Ctrl + R
          *      全局替换文本：Ctrl + Shift + R
+         *      显示方法信息：在方法名上使用 ctrl +　鼠标左键
          */
     }
 }
