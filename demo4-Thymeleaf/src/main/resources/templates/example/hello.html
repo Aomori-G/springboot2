@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${mav}">mav</title>
+</head>
+<body>
+    <!--mav用来接收控制器的参数，如果控制器有传入数据，则Thymeleaf会用mav参数的值替换Hello2-->
+    <h1 th:text="${mav}?:'Hello2'">mav</h1>
+    <div th:object="${user}">
+        <p th:text="*{name}"></p>
+        <p th:text="*{age}"></p>
+    </div>
+    <!--URL-->
+    <a th:href="@{/helloworld2}" th:unless="${user==null}">跳转到 a.html</a>
+    <br>
+    <!--运算-->
+    <span th:text="1 + 3">1 + 3</span><br>
+    <span th:text="9 % 2">9 % 2</span><br>
+    <!--使用 # 访问 Thymeleaf 提供的共用的对象-->
+    <td th:text="${#dates.format(user.createTime,'yyyy-MM-dd HH:mm:ss')}">格式化时间</td>
+    <!--遍历对象-->
+    <div th:each="user:${user}">
+        <li th:text="${user.name}">name</li>
+        <li th:text="${user.age}">age</li>
+    </div>
+</body>
+</html>
