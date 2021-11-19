@@ -3,6 +3,7 @@ package com.cxq.demo.controller;
 import com.cxq.demo.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
@@ -24,4 +25,5 @@ public class HelloWorldMvcController {
     public String hello2(Model model){
         return "example/a";
     }
+
 }
